@@ -57,8 +57,13 @@ for i in $(seq 1 150); do
     sleep 2
 done
 
-# Start API server
+# Kill anything on port 8000 before starting
 echo ""
+echo "Clearing port 8000..."
+pkill -f hair_api.py 2>/dev/null || true
+sleep 2
+
+# Start API server
 echo "Starting API server..."
 cd /workspace
 COMFYUI_URL="http://localhost:8188" python3 hair_api.py
