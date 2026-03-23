@@ -7,9 +7,9 @@ echo "=== CrownAI Server Setup ==="
 echo "Installing dependencies..."
 pip3 install fastapi uvicorn opencv-python-headless requests pydantic python-multipart -q
 
-# Download api_server.py
-echo "Downloading api_server.py..."
-curl -s https://raw.githubusercontent.com/mkdamike/crownai-server/main/api_server.py -o /workspace/api_server.py
+# Download api_server.py (saved as hair_api.py to avoid name clash with ComfyUI internals)
+echo "Downloading hair_api.py..."
+curl -s https://raw.githubusercontent.com/mkdamike/crownai-server/main/api_server.py -o /workspace/hair_api.py
 
 # Find ComfyUI
 echo "Finding ComfyUI..."
@@ -73,4 +73,4 @@ done
 echo ""
 echo "Starting API server..."
 cd /workspace
-COMFYUI_URL="http://localhost:8188" python3 api_server.py
+COMFYUI_URL="http://localhost:8188" python3 hair_api.py
