@@ -122,7 +122,7 @@ def get_history(prompt_id):
     return r.json()
 
 
-def wait_for_result(prompt_id, timeout=120):
+def wait_for_result(prompt_id, timeout=600):
     start = time.time()
     while time.time() - start < timeout:
         history = get_history(prompt_id)
